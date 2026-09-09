@@ -28,10 +28,10 @@ import (
 
 	"maunium.net/go/mautrix/bridgev2"
 
-	"go.mau.fi/mautrix-meta/pkg/messagix/cookies"
-	"go.mau.fi/mautrix-meta/pkg/messagix/httpclient"
-	"go.mau.fi/mautrix-meta/pkg/messagix/types"
-	"go.mau.fi/mautrix-meta/pkg/messagix/useragent"
+	"go.mewis.me/meta-extra/pkg/messagix/cookies"
+	"go.mewis.me/meta-extra/pkg/messagix/httpclient"
+	"go.mewis.me/meta-extra/pkg/messagix/types"
+	"go.mewis.me/meta-extra/pkg/messagix/useragent"
 )
 
 const instagramAccountManagerField = "account"

@@ -26,8 +26,8 @@ import (
 
 	"github.com/google/go-querystring/query"
 
-	"go.mau.fi/mautrix-meta/pkg/messagix/httpclient"
-	"go.mau.fi/mautrix-meta/pkg/messagix/types"
+	"go.mewis.me/meta-extra/pkg/messagix/httpclient"
+	"go.mewis.me/meta-extra/pkg/messagix/types"
 )
 
 type ThreadIGIDs struct {

@@ -14,8 +14,8 @@ import (
 
 	"github.com/rs/zerolog"
 
-	"go.mau.fi/mautrix-meta/pkg/messagix/bloks"
-	"go.mau.fi/mautrix-meta/pkg/messagix/types"
+	"go.mewis.me/meta-extra/pkg/messagix/bloks"
+	"go.mewis.me/meta-extra/pkg/messagix/types"
 )
 
 // Tool configuration

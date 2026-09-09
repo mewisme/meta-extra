@@ -12,7 +12,7 @@ import (
 	"strings"
 	"testing"
 
-	"go.mau.fi/mautrix-meta/pkg/messagix/types"
+	"go.mewis.me/meta-extra/pkg/messagix/types"
 )
 
 func TestInstagramWebPasswordUsesCurrentPrefixWithoutChangingLegacyFormat(t *testing.T) {

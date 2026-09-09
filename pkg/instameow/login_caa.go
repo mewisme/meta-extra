@@ -28,9 +28,9 @@ import (
 
 	"maunium.net/go/mautrix/bridgev2"
 
-	"go.mau.fi/mautrix-meta/pkg/messagix/bloks"
-	"go.mau.fi/mautrix-meta/pkg/messagix/crypto"
-	"go.mau.fi/mautrix-meta/pkg/messagix/types"
+	"go.mewis.me/meta-extra/pkg/messagix/bloks"
+	"go.mewis.me/meta-extra/pkg/messagix/crypto"
+	"go.mewis.me/meta-extra/pkg/messagix/types"
 )
 
 const instagramCAALoginEntrypoint = "com.bloks.www.bloks.caa.login.process_client_data_and_redirect"

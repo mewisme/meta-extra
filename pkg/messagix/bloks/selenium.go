@@ -25,8 +25,8 @@ import (
 	"maunium.net/go/mautrix/bridgev2"
 	"maunium.net/go/mautrix/event"
 
-	"go.mau.fi/mautrix-meta/pkg/messagix/loginerrors"
-	"go.mau.fi/mautrix-meta/pkg/messagix/types"
+	"go.mewis.me/meta-extra/pkg/messagix/loginerrors"
+	"go.mewis.me/meta-extra/pkg/messagix/types"
 )
 
 func (bb *BloksBundle) FindDescendant(pred func(*BloksTreeComponent) bool) *BloksTreeComponent {

@@ -30,12 +30,12 @@ import (
 	"go.mau.fi/util/exhttp"
 	"go.mau.fi/util/exsync"
 
-	"go.mau.fi/mautrix-meta/pkg/instameow/slidetypes"
-	"go.mau.fi/mautrix-meta/pkg/messagix/cookies"
-	"go.mau.fi/mautrix-meta/pkg/messagix/dgw"
-	"go.mau.fi/mautrix-meta/pkg/messagix/endpoints"
-	"go.mau.fi/mautrix-meta/pkg/messagix/httpclient"
-	"go.mau.fi/mautrix-meta/pkg/messagix/types"
+	"go.mewis.me/meta-extra/pkg/instameow/slidetypes"
+	"go.mewis.me/meta-extra/pkg/messagix/cookies"
+	"go.mewis.me/meta-extra/pkg/messagix/dgw"
+	"go.mewis.me/meta-extra/pkg/messagix/endpoints"
+	"go.mewis.me/meta-extra/pkg/messagix/httpclient"
+	"go.mewis.me/meta-extra/pkg/messagix/types"
 )
 
 type Client struct {

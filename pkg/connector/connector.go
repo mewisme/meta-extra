@@ -8,9 +8,9 @@ import (
 	"maunium.net/go/mautrix/bridgev2"
 	"maunium.net/go/mautrix/bridgev2/commands"
 
-	"go.mau.fi/mautrix-meta/pkg/metadb"
-	"go.mau.fi/mautrix-meta/pkg/msgconv"
-	"go.mau.fi/mautrix-meta/pkg/msgconv/mediadl"
+	"go.mewis.me/meta-extra/pkg/metadb"
+	"go.mewis.me/meta-extra/pkg/msgconv"
+	"go.mewis.me/meta-extra/pkg/msgconv/mediadl"
 )
 
 type MetaConnector struct {

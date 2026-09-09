@@ -24,7 +24,7 @@ import (
 	"github.com/rs/zerolog"
 	"go.mau.fi/util/random"
 
-	"go.mau.fi/mautrix-meta/pkg/messagix/socket"
+	"go.mewis.me/meta-extra/pkg/messagix/socket"
 )
 
 type UTF16String []uint16

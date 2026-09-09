@@ -3,7 +3,7 @@ package bloks
 import (
 	"fmt"
 
-	"go.mau.fi/mautrix-meta/pkg/messagix/types"
+	"go.mewis.me/meta-extra/pkg/messagix/types"
 )
 
 type BloksPlatform int

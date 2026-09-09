@@ -26,9 +26,9 @@ import (
 	"github.com/coder/websocket"
 	"github.com/rs/zerolog"
 
-	"go.mau.fi/mautrix-meta/pkg/instameow/thrift"
-	"go.mau.fi/mautrix-meta/pkg/instameow/thrift/mqttbypass"
-	"go.mau.fi/mautrix-meta/pkg/messagix/dgw"
+	"go.mewis.me/meta-extra/pkg/instameow/thrift"
+	"go.mewis.me/meta-extra/pkg/instameow/thrift/mqttbypass"
+	"go.mewis.me/meta-extra/pkg/messagix/dgw"
 )
 
 type indicateActivity struct {

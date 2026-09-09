@@ -6,7 +6,7 @@ import (
 
 	"github.com/rs/zerolog"
 
-	"go.mau.fi/mautrix-meta/pkg/metaid"
+	"go.mewis.me/meta-extra/pkg/metaid"
 )
 
 func (m *MetaClient) StartThreadBackfill(ctx context.Context) error {

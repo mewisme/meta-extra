@@ -16,11 +16,11 @@ import (
 	"maunium.net/go/mautrix/bridgev2/status"
 	"maunium.net/go/mautrix/event"
 
-	"go.mau.fi/mautrix-meta/pkg/messagix"
-	"go.mau.fi/mautrix-meta/pkg/messagix/dgw"
-	"go.mau.fi/mautrix-meta/pkg/messagix/table"
-	"go.mau.fi/mautrix-meta/pkg/messagix/types"
-	"go.mau.fi/mautrix-meta/pkg/metaid"
+	"go.mewis.me/meta-extra/pkg/messagix"
+	"go.mewis.me/meta-extra/pkg/messagix/dgw"
+	"go.mewis.me/meta-extra/pkg/messagix/table"
+	"go.mewis.me/meta-extra/pkg/messagix/types"
+	"go.mewis.me/meta-extra/pkg/metaid"
 )
 
 const (

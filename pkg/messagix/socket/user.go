@@ -1,6 +1,6 @@
 package socket
 
-import "go.mau.fi/mautrix-meta/pkg/messagix/table"
+import "go.mewis.me/meta-extra/pkg/messagix/table"
 
 type ReportAppStateTask struct {
 	AppState  table.AppState `json:"app_state"`

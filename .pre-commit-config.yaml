@@ -14,7 +14,7 @@ repos:
       - id: go-imports
         args:
           - "-local"
-          - "go.mau.fi/mautrix-meta"
+          - "go.mewis.me/meta-extra"
           - "-w"
       - id: go-vet-mod
       - id: go-staticcheck-repo-mod

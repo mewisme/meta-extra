@@ -15,10 +15,10 @@ import (
 	"github.com/rs/zerolog"
 	"maunium.net/go/mautrix/bridgev2"
 
-	"go.mau.fi/mautrix-meta/pkg/messagix/bloks"
-	"go.mau.fi/mautrix-meta/pkg/messagix/cookies"
-	"go.mau.fi/mautrix-meta/pkg/messagix/types"
-	"go.mau.fi/mautrix-meta/pkg/messagix/useragent"
+	"go.mewis.me/meta-extra/pkg/messagix/bloks"
+	"go.mewis.me/meta-extra/pkg/messagix/cookies"
+	"go.mewis.me/meta-extra/pkg/messagix/types"
+	"go.mewis.me/meta-extra/pkg/messagix/useragent"
 )
 
 func TestInstagramCAALoginUsesClientLoggerWithoutContextLogger(t *testing.T) {

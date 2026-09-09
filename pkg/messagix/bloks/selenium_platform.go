@@ -8,8 +8,8 @@ import (
 	"github.com/rs/zerolog"
 	"maunium.net/go/mautrix/bridgev2"
 
-	"go.mau.fi/mautrix-meta/pkg/messagix/loginerrors"
-	"go.mau.fi/mautrix-meta/pkg/messagix/types"
+	"go.mewis.me/meta-extra/pkg/messagix/loginerrors"
+	"go.mewis.me/meta-extra/pkg/messagix/types"
 )
 
 type browserPlatformErrors struct {

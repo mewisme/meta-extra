@@ -13,13 +13,13 @@ import (
 	"github.com/google/uuid"
 	"maunium.net/go/mautrix/bridgev2"
 
-	"go.mau.fi/mautrix-meta/pkg/messagix/bloks"
-	"go.mau.fi/mautrix-meta/pkg/messagix/cookies"
-	"go.mau.fi/mautrix-meta/pkg/messagix/crypto"
-	"go.mau.fi/mautrix-meta/pkg/messagix/httpclient"
-	"go.mau.fi/mautrix-meta/pkg/messagix/loginerrors"
-	"go.mau.fi/mautrix-meta/pkg/messagix/types"
-	"go.mau.fi/mautrix-meta/pkg/messagix/useragent"
+	"go.mewis.me/meta-extra/pkg/messagix/bloks"
+	"go.mewis.me/meta-extra/pkg/messagix/cookies"
+	"go.mewis.me/meta-extra/pkg/messagix/crypto"
+	"go.mewis.me/meta-extra/pkg/messagix/httpclient"
+	"go.mewis.me/meta-extra/pkg/messagix/loginerrors"
+	"go.mewis.me/meta-extra/pkg/messagix/types"
+	"go.mewis.me/meta-extra/pkg/messagix/useragent"
 )
 
 type MessengerLiteMethods struct {

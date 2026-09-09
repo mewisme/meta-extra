@@ -34,12 +34,12 @@ import (
 	"maunium.net/go/mautrix/format"
 	"maunium.net/go/mautrix/id"
 
-	"go.mau.fi/mautrix-meta/pkg/instameow"
-	"go.mau.fi/mautrix-meta/pkg/instameow/slidetypes"
-	"go.mau.fi/mautrix-meta/pkg/messagix/table"
-	"go.mau.fi/mautrix-meta/pkg/metaid"
-	"go.mau.fi/mautrix-meta/pkg/msgconv/mediadl"
-	"go.mau.fi/mautrix-meta/pkg/msgconv/textfmt"
+	"go.mewis.me/meta-extra/pkg/instameow"
+	"go.mewis.me/meta-extra/pkg/instameow/slidetypes"
+	"go.mewis.me/meta-extra/pkg/messagix/table"
+	"go.mewis.me/meta-extra/pkg/metaid"
+	"go.mewis.me/meta-extra/pkg/msgconv/mediadl"
+	"go.mewis.me/meta-extra/pkg/msgconv/textfmt"
 )
 
 func (mc *MessageConverter) getBasicUserInfo(ctx context.Context, user networkid.UserID) (id.UserID, string, error) {

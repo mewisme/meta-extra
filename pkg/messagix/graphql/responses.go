@@ -1,8 +1,8 @@
 package graphql
 
 import (
-	"go.mau.fi/mautrix-meta/pkg/messagix/lightspeed"
-	"go.mau.fi/mautrix-meta/pkg/messagix/types"
+	"go.mewis.me/meta-extra/pkg/messagix/lightspeed"
+	"go.mewis.me/meta-extra/pkg/messagix/types"
 )
 
 type LSPlatformGraphQLLightspeedRequestQuery = Response[*struct {

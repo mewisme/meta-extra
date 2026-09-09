@@ -19,9 +19,9 @@ package msgconv
 import (
 	"maunium.net/go/mautrix/bridgev2"
 
-	"go.mau.fi/mautrix-meta/pkg/messagix/types"
-	"go.mau.fi/mautrix-meta/pkg/metadb"
-	"go.mau.fi/mautrix-meta/pkg/msgconv/textfmt"
+	"go.mewis.me/meta-extra/pkg/messagix/types"
+	"go.mewis.me/meta-extra/pkg/metadb"
+	"go.mewis.me/meta-extra/pkg/msgconv/textfmt"
 )
 
 type MessageConverter struct {

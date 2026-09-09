@@ -5,8 +5,8 @@ import (
 	"context"
 	"fmt"
 
-	"go.mau.fi/mautrix-meta/pkg/messagix/socket"
-	"go.mau.fi/mautrix-meta/pkg/messagix/table"
+	"go.mewis.me/meta-extra/pkg/messagix/socket"
+	"go.mewis.me/meta-extra/pkg/messagix/table"
 )
 
 func (c *Client) updateSocketIDs() {

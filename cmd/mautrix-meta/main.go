@@ -3,7 +3,7 @@ package main
 import (
 	"maunium.net/go/mautrix/bridgev2/matrix/mxmain"
 
-	"go.mau.fi/mautrix-meta/pkg/connector"
+	"go.mewis.me/meta-extra/pkg/connector"
 )
 
 // Information to find out exactly which commit the bridge was built from.
@@ -17,7 +17,7 @@ var (
 var m = mxmain.BridgeMain{
 	Name:        "mautrix-facebook",
 	DBOwner:     "megabridge/mautrix-meta",
-	URL:         "https://github.com/mautrix/meta",
+	URL:         "https://github.com/mewisme/meta-extra",
 	Description: "A Matrix-Facebook Messenger puppeting bridge.",
 	Version:     "26.08",
 	SemCalVer:   true,

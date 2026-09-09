@@ -47,10 +47,10 @@ import (
 	"maunium.net/go/mautrix/bridgev2/networkid"
 	"maunium.net/go/mautrix/event"
 
-	"go.mau.fi/mautrix-meta/pkg/messagix"
-	"go.mau.fi/mautrix-meta/pkg/metaid"
-	"go.mau.fi/mautrix-meta/pkg/msgconv/mediadl"
-	"go.mau.fi/mautrix-meta/pkg/msgconv/textfmt"
+	"go.mewis.me/meta-extra/pkg/messagix"
+	"go.mewis.me/meta-extra/pkg/metaid"
+	"go.mewis.me/meta-extra/pkg/msgconv/mediadl"
+	"go.mewis.me/meta-extra/pkg/msgconv/textfmt"
 )
 
 func (mc *MessageConverter) WhatsAppTextToMatrix(ctx context.Context, text *waCommon.MessageText) *bridgev2.ConvertedMessagePart {

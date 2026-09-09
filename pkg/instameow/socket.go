@@ -29,12 +29,12 @@ import (
 	"go.mau.fi/util/ptr"
 	"google.golang.org/protobuf/proto"
 
-	"go.mau.fi/mautrix-meta/pkg/instameow/mdCoreSync"
-	"go.mau.fi/mautrix-meta/pkg/instameow/slidetypes"
-	"go.mau.fi/mautrix-meta/pkg/messagix/dgw"
-	"go.mau.fi/mautrix-meta/pkg/messagix/graphql"
-	"go.mau.fi/mautrix-meta/pkg/messagix/socket"
-	"go.mau.fi/mautrix-meta/pkg/messagix/useragent"
+	"go.mewis.me/meta-extra/pkg/instameow/mdCoreSync"
+	"go.mewis.me/meta-extra/pkg/instameow/slidetypes"
+	"go.mewis.me/meta-extra/pkg/messagix/dgw"
+	"go.mewis.me/meta-extra/pkg/messagix/graphql"
+	"go.mewis.me/meta-extra/pkg/messagix/socket"
+	"go.mewis.me/meta-extra/pkg/messagix/useragent"
 )
 
 var MaxConnectionRetryInterval = 60 * time.Second

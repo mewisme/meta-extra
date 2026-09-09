@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"reflect"
 
-	"go.mau.fi/mautrix-meta/pkg/messagix/types"
+	"go.mewis.me/meta-extra/pkg/messagix/types"
 )
 
 // Messenger iOS 571.0.0.18.106 of 2026-07-22

@@ -9,8 +9,8 @@ import (
 
 	"github.com/rs/zerolog"
 
-	"go.mau.fi/mautrix-meta/pkg/messagix/cookies"
-	"go.mau.fi/mautrix-meta/pkg/messagix/types"
+	"go.mewis.me/meta-extra/pkg/messagix/cookies"
+	"go.mewis.me/meta-extra/pkg/messagix/types"
 )
 
 func TestMobileLoginDevicePersistsAcrossClients(t *testing.T) {

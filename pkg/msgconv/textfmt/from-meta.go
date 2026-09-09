@@ -26,8 +26,8 @@ import (
 	"maunium.net/go/mautrix/event"
 	"maunium.net/go/mautrix/id"
 
-	"go.mau.fi/mautrix-meta/pkg/messagix/socket"
-	"go.mau.fi/mautrix-meta/pkg/metaid"
+	"go.mewis.me/meta-extra/pkg/messagix/socket"
+	"go.mewis.me/meta-extra/pkg/metaid"
 )
 
 type GetBasicUserInfoFunc func(ctx context.Context, user networkid.UserID) (id.UserID, string, error)

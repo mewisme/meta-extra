@@ -35,11 +35,11 @@ import (
 	"maunium.net/go/mautrix/bridgev2/networkid"
 	"maunium.net/go/mautrix/bridgev2/status"
 
-	"go.mau.fi/mautrix-meta/pkg/instameow"
-	"go.mau.fi/mautrix-meta/pkg/instameow/slidetypes"
-	"go.mau.fi/mautrix-meta/pkg/messagix/httpclient"
-	"go.mau.fi/mautrix-meta/pkg/messagix/types"
-	"go.mau.fi/mautrix-meta/pkg/metaid"
+	"go.mewis.me/meta-extra/pkg/instameow"
+	"go.mewis.me/meta-extra/pkg/instameow/slidetypes"
+	"go.mewis.me/meta-extra/pkg/messagix/httpclient"
+	"go.mewis.me/meta-extra/pkg/messagix/types"
+	"go.mewis.me/meta-extra/pkg/metaid"
 )
 
 type IGClient struct {

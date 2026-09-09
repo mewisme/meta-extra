@@ -26,11 +26,11 @@ import (
 	"maunium.net/go/mautrix/bridgev2/database"
 	"maunium.net/go/mautrix/event"
 
-	"go.mau.fi/mautrix-meta/pkg/messagix"
-	"go.mau.fi/mautrix-meta/pkg/messagix/socket"
-	"go.mau.fi/mautrix-meta/pkg/messagix/table"
-	"go.mau.fi/mautrix-meta/pkg/metaid"
-	"go.mau.fi/mautrix-meta/pkg/msgconv/mediadl"
+	"go.mewis.me/meta-extra/pkg/messagix"
+	"go.mewis.me/meta-extra/pkg/messagix/socket"
+	"go.mewis.me/meta-extra/pkg/messagix/table"
+	"go.mewis.me/meta-extra/pkg/metaid"
+	"go.mewis.me/meta-extra/pkg/msgconv/mediadl"
 )
 
 func (mc *MessageConverter) ToMeta(

@@ -20,7 +20,7 @@ import (
 	"maunium.net/go/mautrix/bridgev2"
 	"maunium.net/go/mautrix/bridgev2/networkid"
 
-	"go.mau.fi/mautrix-meta/pkg/metaid"
+	"go.mewis.me/meta-extra/pkg/metaid"
 )
 
 func (ic *IGClient) selfEventSender() bridgev2.EventSender {

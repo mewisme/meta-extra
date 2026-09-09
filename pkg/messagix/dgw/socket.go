@@ -34,7 +34,7 @@ import (
 	"github.com/rs/zerolog"
 	"go.mau.fi/util/exsync"
 
-	"go.mau.fi/mautrix-meta/pkg/messagix/useragent"
+	"go.mewis.me/meta-extra/pkg/messagix/useragent"
 )
 
 type SocketOptions struct {

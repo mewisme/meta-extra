@@ -9,7 +9,7 @@ import (
 
 	"go.mau.fi/util/exerrors"
 
-	"go.mau.fi/mautrix-meta/pkg/messagix/dgw"
+	"go.mewis.me/meta-extra/pkg/messagix/dgw"
 )
 
 func main() {

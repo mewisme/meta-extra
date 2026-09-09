@@ -33,10 +33,10 @@ import (
 	"maunium.net/go/mautrix/bridgev2/status"
 	"maunium.net/go/mautrix/event"
 
-	"go.mau.fi/mautrix-meta/pkg/instameow"
-	"go.mau.fi/mautrix-meta/pkg/instameow/slidetypes"
-	"go.mau.fi/mautrix-meta/pkg/messagix/dgw"
-	"go.mau.fi/mautrix-meta/pkg/metaid"
+	"go.mewis.me/meta-extra/pkg/instameow"
+	"go.mewis.me/meta-extra/pkg/instameow/slidetypes"
+	"go.mewis.me/meta-extra/pkg/messagix/dgw"
+	"go.mewis.me/meta-extra/pkg/metaid"
 )
 
 const (

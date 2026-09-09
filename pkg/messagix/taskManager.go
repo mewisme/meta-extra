@@ -4,8 +4,8 @@ import (
 	"encoding/json"
 	"strconv"
 
-	"go.mau.fi/mautrix-meta/pkg/messagix/methods"
-	"go.mau.fi/mautrix-meta/pkg/messagix/socket"
+	"go.mewis.me/meta-extra/pkg/messagix/methods"
+	"go.mewis.me/meta-extra/pkg/messagix/socket"
 )
 
 type TaskManager struct {

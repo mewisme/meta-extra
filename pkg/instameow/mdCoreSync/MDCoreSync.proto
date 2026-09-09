@@ -1,6 +1,6 @@
 syntax = "proto2";
 package mdCoreSync;
-option go_package = "go.mau.fi/mautrix-meta/pkg/instameow/mdCoreSync";
+option go_package = "go.mewis.me/meta-extra/pkg/instameow/mdCoreSync";
 
 message LSResponse {
 	optional bytes controlHeader = 1;

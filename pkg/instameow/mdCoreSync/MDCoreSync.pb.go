@@ -639,7 +639,7 @@ const file_MDCoreSync_proto_rawDesc = "" +
 	"syncStatus\x12 \n" +
 	"\vsyncChannel\x18\a \x01(\x05R\vsyncChannel\x12\x16\n" +
 	"\x06userID\x18\b \x01(\x03R\x06userID\x12(\n" +
-	"\x0fskipMismatchLog\x18\t \x01(\bR\x0fskipMismatchLogB0Z.go.mau.fi/mautrix-meta/pkg/messagix/mdCoreSync"
+	"\x0fskipMismatchLog\x18\t \x01(\bR\x0fskipMismatchLogB0Z.go.mewis.me/meta-extra/pkg/messagix/mdCoreSync"
 
 var (
 	file_MDCoreSync_proto_rawDescOnce sync.Once

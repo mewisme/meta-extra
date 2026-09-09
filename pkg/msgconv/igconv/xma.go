@@ -37,12 +37,12 @@ import (
 	"maunium.net/go/mautrix/event"
 	"maunium.net/go/mautrix/format"
 
-	"go.mau.fi/mautrix-meta/pkg/instameow"
-	"go.mau.fi/mautrix-meta/pkg/instameow/slidetypes"
-	"go.mau.fi/mautrix-meta/pkg/messagix/responses"
-	"go.mau.fi/mautrix-meta/pkg/messagix/table"
-	"go.mau.fi/mautrix-meta/pkg/metaid"
-	"go.mau.fi/mautrix-meta/pkg/msgconv/mediadl"
+	"go.mewis.me/meta-extra/pkg/instameow"
+	"go.mewis.me/meta-extra/pkg/instameow/slidetypes"
+	"go.mewis.me/meta-extra/pkg/messagix/responses"
+	"go.mewis.me/meta-extra/pkg/messagix/table"
+	"go.mewis.me/meta-extra/pkg/metaid"
+	"go.mewis.me/meta-extra/pkg/msgconv/mediadl"
 )
 
 func (mc *MessageConverter) wrapXMAPreviewImage(ctx context.Context, xma *slidetypes.XMAContent) *bridgev2.ConvertedMessagePart {

@@ -10,9 +10,9 @@ import (
 
 	"github.com/tidwall/gjson"
 
-	"go.mau.fi/mautrix-meta/pkg/messagix/graphql"
-	"go.mau.fi/mautrix-meta/pkg/messagix/lightspeed"
-	"go.mau.fi/mautrix-meta/pkg/messagix/types"
+	"go.mewis.me/meta-extra/pkg/messagix/graphql"
+	"go.mewis.me/meta-extra/pkg/messagix/lightspeed"
+	"go.mewis.me/meta-extra/pkg/messagix/types"
 )
 
 func (m *ModuleParser) HandleRawJSON(data []byte, id string) error {

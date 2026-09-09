@@ -6,7 +6,7 @@ import (
 	"crypto/tls"
 	"net/http"
 
-	"go.mau.fi/mautrix-meta/pkg/messagix/httpclient"
+	"go.mewis.me/meta-extra/pkg/messagix/httpclient"
 )
 
 func init() {

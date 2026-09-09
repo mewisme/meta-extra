@@ -34,10 +34,10 @@ import (
 	"maunium.net/go/mautrix/bridgev2/networkid"
 	"maunium.net/go/mautrix/mediaproxy"
 
-	"go.mau.fi/mautrix-meta/pkg/instameow/slidetypes"
-	"go.mau.fi/mautrix-meta/pkg/messagix/responses"
-	"go.mau.fi/mautrix-meta/pkg/metaid"
-	"go.mau.fi/mautrix-meta/pkg/msgconv/mediadl"
+	"go.mewis.me/meta-extra/pkg/instameow/slidetypes"
+	"go.mewis.me/meta-extra/pkg/messagix/responses"
+	"go.mewis.me/meta-extra/pkg/metaid"
+	"go.mewis.me/meta-extra/pkg/msgconv/mediadl"
 )
 
 var _ bridgev2.DirectMediableNetwork = (*IGConnector)(nil)

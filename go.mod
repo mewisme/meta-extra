@@ -1,4 +1,4 @@
-module go.mau.fi/mautrix-meta
+module go.mewis.me/meta-extra
 
 go 1.26.0
 

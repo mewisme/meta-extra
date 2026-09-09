@@ -1,0 +1,16 @@
+meta-extra
+
+This repository is a modified fork of mautrix/meta:
+https://github.com/mautrix/meta
+
+Fork repository:
+https://github.com/mewisme/meta-extra
+
+Go module:
+go.mewis.me/meta-extra
+
+Upstream source files, copyright notices, license headers, and attribution are retained. Repository history records modifications made by this fork.
+
+The project remains subject to the GNU Affero General Public License terms provided in LICENSE and the notices present in the source tree.
+
+LICENSE.exceptions is preserved from upstream. Those special exceptions were granted by the mautrix-meta copyright holders to the parties named there. meta-extra does not reissue, broaden, or replace those grants.

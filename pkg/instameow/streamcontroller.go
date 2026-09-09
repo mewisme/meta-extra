@@ -26,11 +26,11 @@ import (
 	"github.com/coder/websocket"
 	"github.com/rs/zerolog"
 
-	"go.mau.fi/mautrix-meta/pkg/instameow/slidetypes"
-	"go.mau.fi/mautrix-meta/pkg/instameow/thrift"
-	"go.mau.fi/mautrix-meta/pkg/instameow/thrift/requeststream"
-	"go.mau.fi/mautrix-meta/pkg/messagix/dgw"
-	"go.mau.fi/mautrix-meta/pkg/messagix/graphql"
+	"go.mewis.me/meta-extra/pkg/instameow/slidetypes"
+	"go.mewis.me/meta-extra/pkg/instameow/thrift"
+	"go.mewis.me/meta-extra/pkg/instameow/thrift/requeststream"
+	"go.mewis.me/meta-extra/pkg/messagix/dgw"
+	"go.mewis.me/meta-extra/pkg/messagix/graphql"
 )
 
 func (c *Client) connectStreamController(ctx context.Context) {

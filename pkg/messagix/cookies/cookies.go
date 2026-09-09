@@ -10,7 +10,7 @@ import (
 	"sync"
 	"time"
 
-	"go.mau.fi/mautrix-meta/pkg/messagix/types"
+	"go.mewis.me/meta-extra/pkg/messagix/types"
 )
 
 type MetaCookieName string

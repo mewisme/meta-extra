@@ -19,7 +19,7 @@ import (
 	"go.mau.fi/util/random"
 	"golang.org/x/crypto/nacl/box"
 
-	"go.mau.fi/mautrix-meta/pkg/messagix/types"
+	"go.mewis.me/meta-extra/pkg/messagix/types"
 
 	// We're replacing golang.org/x/crypto with a fork for "legacy chacha20poly1305" (8 byte nonce)
 	//"golang.org/x/crypto/chacha20poly1305"

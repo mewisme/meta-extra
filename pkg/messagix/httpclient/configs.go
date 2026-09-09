@@ -5,9 +5,9 @@ import (
 	"reflect"
 	"strconv"
 
-	"go.mau.fi/mautrix-meta/pkg/messagix/crypto"
-	"go.mau.fi/mautrix-meta/pkg/messagix/methods"
-	"go.mau.fi/mautrix-meta/pkg/messagix/types"
+	"go.mewis.me/meta-extra/pkg/messagix/crypto"
+	"go.mewis.me/meta-extra/pkg/messagix/methods"
+	"go.mewis.me/meta-extra/pkg/messagix/types"
 )
 
 type Configs struct {

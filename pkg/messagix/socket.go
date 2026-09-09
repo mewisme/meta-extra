@@ -8,10 +8,10 @@ import (
 
 	"github.com/rs/zerolog"
 
-	"go.mau.fi/mautrix-meta/pkg/messagix/lightspeed"
-	"go.mau.fi/mautrix-meta/pkg/messagix/methods"
-	"go.mau.fi/mautrix-meta/pkg/messagix/socket"
-	"go.mau.fi/mautrix-meta/pkg/messagix/table"
+	"go.mewis.me/meta-extra/pkg/messagix/lightspeed"
+	"go.mewis.me/meta-extra/pkg/messagix/methods"
+	"go.mewis.me/meta-extra/pkg/messagix/socket"
+	"go.mewis.me/meta-extra/pkg/messagix/table"
 )
 
 type TransientDisconnectEvent struct {

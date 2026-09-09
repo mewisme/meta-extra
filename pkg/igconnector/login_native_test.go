@@ -8,7 +8,7 @@ import (
 	"github.com/rs/zerolog"
 	"maunium.net/go/mautrix/bridgev2"
 
-	"go.mau.fi/mautrix-meta/pkg/messagix/cookies"
+	"go.mewis.me/meta-extra/pkg/messagix/cookies"
 )
 
 type nativeLoginRoundTripper struct{}

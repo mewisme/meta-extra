@@ -45,8 +45,8 @@ import (
 	"maunium.net/go/mautrix/bridgev2/database"
 	"maunium.net/go/mautrix/event"
 
-	"go.mau.fi/mautrix-meta/pkg/metaid"
-	"go.mau.fi/mautrix-meta/pkg/msgconv/mediadl"
+	"go.mewis.me/meta-extra/pkg/metaid"
+	"go.mewis.me/meta-extra/pkg/msgconv/mediadl"
 )
 
 func (mc *MessageConverter) TextToWhatsApp(ctx context.Context, portal *bridgev2.Portal, content *event.MessageEventContent) *waCommon.MessageText {

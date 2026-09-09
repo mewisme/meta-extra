@@ -19,7 +19,7 @@ package igconnector
 import (
 	"maunium.net/go/mautrix/bridgev2/database"
 
-	"go.mau.fi/mautrix-meta/pkg/metaid"
+	"go.mewis.me/meta-extra/pkg/metaid"
 )
 
 func (ic *IGConnector) GetDBMetaTypes() database.MetaTypes {

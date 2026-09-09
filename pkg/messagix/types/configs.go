@@ -6,7 +6,7 @@ import (
 	"strconv"
 	"strings"
 
-	"go.mau.fi/mautrix-meta/pkg/messagix/table"
+	"go.mewis.me/meta-extra/pkg/messagix/table"
 )
 
 type MqttWebDeviceID struct {

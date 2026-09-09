@@ -22,7 +22,7 @@ import (
 	"go.mau.fi/util/exslices"
 	"go.mau.fi/util/jsontime"
 
-	"go.mau.fi/mautrix-meta/pkg/messagix/socket"
+	"go.mewis.me/meta-extra/pkg/messagix/socket"
 )
 
 type Message struct {

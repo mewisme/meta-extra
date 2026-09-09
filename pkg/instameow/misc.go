@@ -10,9 +10,9 @@ import (
 	"github.com/google/go-querystring/query"
 	"go.mau.fi/util/jsonbytes"
 
-	"go.mau.fi/mautrix-meta/pkg/messagix/cookies"
-	"go.mau.fi/mautrix-meta/pkg/messagix/responses"
-	"go.mau.fi/mautrix-meta/pkg/messagix/types"
+	"go.mewis.me/meta-extra/pkg/messagix/cookies"
+	"go.mewis.me/meta-extra/pkg/messagix/responses"
+	"go.mewis.me/meta-extra/pkg/messagix/types"
 )
 
 type PushKeys struct {

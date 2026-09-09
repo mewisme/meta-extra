@@ -6,7 +6,7 @@ import (
 
 	"go.mau.fi/util/exerrors"
 
-	"go.mau.fi/mautrix-meta/pkg/messagix/table"
+	"go.mewis.me/meta-extra/pkg/messagix/table"
 )
 
 type SendReactionTask struct {

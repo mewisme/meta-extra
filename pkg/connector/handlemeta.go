@@ -368,9 +368,28 @@ func (m *MetaClient) parseTable(ctx context.Context, tbl *table.LSTable) (innerQ
 	}
 
 	collectPortalEvents(params, insert, m.handleMessageInsert, &innerQueue)
-	// Edits are special snowflakes that don't include the thread key
+	// Edits and self-recall cleanup are special snowflakes that don't include the thread key.
 	for _, edit := range tbl.LSEditMessage {
 		m.handleEdit(ctx, edit, &innerQueue)
+	}
+	knownDeletes := make(map[string]struct{}, len(tbl.LSDeleteMessage)+len(tbl.LSDeleteThenInsertMessage))
+	for _, deleted := range tbl.LSDeleteMessage {
+		if deleted != nil {
+			knownDeletes[deleted.MessageId] = struct{}{}
+		}
+	}
+	for _, deleted := range tbl.LSDeleteThenInsertMessage {
+		if deleted != nil && deleted.IsUnsent {
+			knownDeletes[deleted.MessageId] = struct{}{}
+		}
+	}
+	for _, recall := range tbl.LSCleanUpOnRecall {
+		if recall == nil {
+			continue
+		}
+		if _, exists := knownDeletes[recall.MessageId]; !exists {
+			m.handleCleanUpOnRecall(ctx, recall, &innerQueue)
+		}
 	}
 	collectPortalEvents(params, tbl.LSSyncUpdateThreadName, m.handleUpdateThreadName, &innerQueue)
 	collectPortalEvents(params, tbl.LSSetThreadImageURL, m.handleSetThreadImage, &innerQueue)
@@ -472,6 +491,22 @@ func wrapMessageDelete(portal networkid.PortalKey, uncertain bool, messageID str
 		},
 		TargetMessage: metaid.MakeFBMessageID(messageID),
 	}
+}
+
+func (m *MetaClient) handleCleanUpOnRecall(ctx context.Context, msg *table.LSCleanUpOnRecall, innerQueue *[]bridgev2.RemoteEvent) {
+	if msg == nil || msg.MessageId == "" {
+		return
+	}
+	original, err := m.Main.Bridge.DB.Message.GetFirstPartByID(ctx, m.UserLogin.ID, metaid.MakeFBMessageID(msg.MessageId))
+	if err != nil {
+		zerolog.Ctx(ctx).Err(err).Str("message_id", msg.MessageId).Msg("Failed to get recalled message")
+		return
+	}
+	if original == nil {
+		zerolog.Ctx(ctx).Warn().Str("message_id", msg.MessageId).Msg("Recalled message not found")
+		return
+	}
+	*innerQueue = append(*innerQueue, wrapMessageDelete(original.Room, false, msg.MessageId))
 }
 
 func (m *MetaClient) handleDeleteMessage(tk handlerParams, msg *table.LSDeleteMessage) bridgev2.RemoteEvent {

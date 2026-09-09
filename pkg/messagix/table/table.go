@@ -119,6 +119,7 @@ type LSTable struct {
 	LSUpdateThreadApprovalMode                       []*LSUpdateThreadApprovalMode                       `json:",omitempty"`
 	LSRemoveAllRequestsFromAdminApprovalQueue        []*LSRemoveAllRequestsFromAdminApprovalQueue        `json:",omitempty"`
 	LSUpdateLastSyncCompletedTimestampMsToNow        []*LSUpdateLastSyncCompletedTimestampMsToNow        `json:",omitempty"`
+	LSCleanUpOnRecall                                []*LSCleanUpOnRecall                                `json:",omitempty"`
 	LSDeleteMessage                                  []*LSDeleteMessage                                  `json:",omitempty"`
 	LSHandleRepliesOnRemove                          []*LSHandleRepliesOnRemove                          `json:",omitempty"`
 	LSRefreshLastActivityTimestamp                   []*LSRefreshLastActivityTimestamp                   `json:",omitempty"`
@@ -286,6 +287,7 @@ var SPTable = map[string]string{
 	"insertStickerAttachment":                        "LSInsertStickerAttachment",
 	"updateForRollCallMessageDeleted":                "LSUpdateForRollCallMessageDeleted",
 	"updateLastSyncCompletedTimestampMsToNow":        "LSUpdateLastSyncCompletedTimestampMsToNow",
+	"cleanUpOnRecall":                                "LSCleanUpOnRecall",
 	"deleteMessage":                                  "LSDeleteMessage",
 	"handleRepliesOnRemove":                          "LSHandleRepliesOnRemove",
 	"refreshLastActivityTimestamp":                   "LSRefreshLastActivityTimestamp",

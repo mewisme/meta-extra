@@ -51,7 +51,7 @@
   * [x] Replies
   * [x] Mentions
   * [ ] Polls
-* [x] Message unsend
+* [x] Message unsend (including realtime self-recall)
 * [x] Message reactions
 * [x] Message edits
 * [x] Message history

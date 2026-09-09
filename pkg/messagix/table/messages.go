@@ -176,6 +176,10 @@ func (um *LSUpsertMessage) ToInsert() *LSInsertMessage {
 	}
 }
 
+type LSCleanUpOnRecall struct {
+	MessageId string `index:"0" json:",omitempty"`
+}
+
 type LSDeleteMessage struct {
 	ThreadKey int64  `index:"0" json:",omitempty"`
 	MessageId string `index:"1" json:",omitempty"`

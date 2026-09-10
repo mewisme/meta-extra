@@ -67,3 +67,46 @@ func (c *Client) ExecuteStatelessTask(ctx context.Context, task socket.Task) err
 	_, err = c.makeLSRequest(ctx, outerPayloadMarshalled, 4)
 	return err
 }
+
+func (c *Client) SetThreadNickname(ctx context.Context, threadKey, contactID int64, nickname string) (*table.LSTable, error) {
+	if c == nil {
+		return nil, ErrClientIsNil
+	} else if threadKey <= 0 || contactID <= 0 {
+		return nil, fmt.Errorf("thread key and contact ID must be positive")
+	}
+	return c.ExecuteTasks(ctx, &socket.SetThreadNicknameTask{ThreadKey: strconv.FormatInt(threadKey, 10), ContactID: contactID, Nickname: nickname, SyncGroup: 1})
+}
+
+func (c *Client) SetThreadEmoji(ctx context.Context, threadKey int64, emoji string) (*table.LSTable, error) {
+	if c == nil {
+		return nil, ErrClientIsNil
+	} else if threadKey <= 0 {
+		return nil, fmt.Errorf("thread key must be positive")
+	}
+	return c.ExecuteTasks(ctx, &socket.SetThreadEmojiTask{ThreadKey: strconv.FormatInt(threadKey, 10), CustomEmoji: emoji, SyncGroup: 1})
+}
+
+func (c *Client) SetThreadApprovalMode(ctx context.Context, threadKey int64, enabled bool) (*table.LSTable, error) {
+	if c == nil {
+		return nil, ErrClientIsNil
+	} else if threadKey <= 0 {
+		return nil, fmt.Errorf("thread key must be positive")
+	}
+	value := 0
+	if enabled {
+		value = 1
+	}
+	return c.ExecuteTasks(ctx, &socket.SetThreadApprovalModeTask{ThreadKey: strconv.FormatInt(threadKey, 10), Enabled: value, SyncGroup: 1})
+}
+
+func (c *Client) SetThreadArchived(ctx context.Context, threadKey int64, archived bool) (*table.LSTable, error) {
+	if c == nil {
+		return nil, ErrClientIsNil
+	} else if threadKey <= 0 {
+		return nil, fmt.Errorf("thread key must be positive")
+	}
+	if archived {
+		return c.ExecuteTasks(ctx, &socket.ArchiveThreadTask{ThreadKey: threadKey, SyncGroup: 1})
+	}
+	return c.ExecuteTasks(ctx, &socket.UnarchiveThreadTask{ThreadID: strconv.FormatInt(threadKey, 10), SyncGroup: 1})
+}

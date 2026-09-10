@@ -648,6 +648,27 @@ type LSMoveThreadToArchivedFolder struct {
 	Unrecognized map[int]any `json:",omitempty"`
 }
 
+type LSUpdateThreadParticipantNicknameV2 struct {
+	ThreadKey          int64  `index:"0" json:",omitempty"`
+	ParticipantId      int64  `index:"1" json:",omitempty"`
+	Nickname           string `index:"2" json:",omitempty"`
+	NormalizedNickname string `index:"3" json:",omitempty"`
+
+	Unrecognized map[int]any `json:",omitempty"`
+}
+
+func (ls *LSUpdateThreadParticipantNicknameV2) GetThreadKey() int64 { return ls.ThreadKey }
+
+type LSUpdateThreadCustomEmoji struct {
+	ThreadKey           int64  `index:"0" json:",omitempty"`
+	CustomEmoji         string `index:"1" json:",omitempty"`
+	CustomEmojiImageUrl string `index:"2" json:",omitempty"`
+
+	Unrecognized map[int]any `json:",omitempty"`
+}
+
+func (ls *LSUpdateThreadCustomEmoji) GetThreadKey() int64 { return ls.ThreadKey }
+
 type LSMoveThreadToE2EECutoverFolder struct {
 	ThreadKey int64 `index:"0" json:",omitempty"`
 

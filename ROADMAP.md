@@ -70,6 +70,13 @@
   * [ ] Per-chat nickname
   * [x] Avatar
 
+### Low-level Messenger API
+* [x] Thread customization mutations
+  * [x] Per-thread nickname
+  * [x] Custom emoji
+  * [x] Admin approval mode
+  * [x] Archive/unarchive
+
 ## Encrypted Messenger
 
 ### Matrix → WhatsApp

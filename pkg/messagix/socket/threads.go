@@ -261,6 +261,36 @@ func (t *SetThreadImageTask) Create() (any, string) {
 	return t, "thread_image"
 }
 
+type SetThreadNicknameTask struct {
+	ThreadKey string `json:"thread_key"`
+	ContactID int64  `json:"contact_id"`
+	Nickname  string `json:"nickname"`
+	SyncGroup int64  `json:"sync_group"`
+}
+
+func (t *SetThreadNicknameTask) GetLabel() string      { return TaskLabels["SetThreadNicknameTask"] }
+func (t *SetThreadNicknameTask) Create() (any, string) { return t, "thread_participant_nickname" }
+
+type SetThreadEmojiTask struct {
+	ThreadKey   string `json:"thread_key"`
+	CustomEmoji string `json:"custom_emoji"`
+	SyncGroup   int64  `json:"sync_group"`
+}
+
+func (t *SetThreadEmojiTask) GetLabel() string      { return TaskLabels["SetThreadEmojiTask"] }
+func (t *SetThreadEmojiTask) Create() (any, string) { return t, "thread_custom_emoji" }
+
+type SetThreadApprovalModeTask struct {
+	ThreadKey string `json:"thread_key"`
+	Enabled   int    `json:"enabled"`
+	SyncGroup int64  `json:"sync_group"`
+}
+
+func (t *SetThreadApprovalModeTask) GetLabel() string { return TaskLabels["SetThreadApprovalModeTask"] }
+func (t *SetThreadApprovalModeTask) Create() (any, string) {
+	return t, "set_needs_admin_approval_for_new_participant"
+}
+
 type EditMessageTask struct {
 	MessageID string `json:"message_id"`
 	Text      string `json:"text"`
@@ -379,6 +409,24 @@ func (t *DeleteThreadTask) GetLabel() string {
 func (t *DeleteThreadTask) Create() (any, string) {
 	return t, strconv.FormatInt(t.ThreadKey, 10)
 }
+
+type ArchiveThreadTask struct {
+	ThreadKey int64 `json:"thread_key"`
+	SyncGroup int64 `json:"sync_group"`
+}
+
+func (t *ArchiveThreadTask) GetLabel() string { return TaskLabels["DeleteThreadTask"] }
+func (t *ArchiveThreadTask) Create() (any, string) {
+	return &DeleteThreadTask{ThreadKey: t.ThreadKey, RemoveType: 1, SyncGroup: t.SyncGroup}, strconv.FormatInt(t.ThreadKey, 10)
+}
+
+type UnarchiveThreadTask struct {
+	ThreadID  string `json:"thread_id"`
+	SyncGroup int64  `json:"sync_group"`
+}
+
+func (t *UnarchiveThreadTask) GetLabel() string      { return TaskLabels["UnarchiveThreadTask"] }
+func (t *UnarchiveThreadTask) Create() (any, string) { return t, "unarchive_thread" }
 
 type CreateWhatsAppThreadTask struct {
 	WAJID            int64            `json:"wa_jid"`

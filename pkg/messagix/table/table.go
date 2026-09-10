@@ -113,6 +113,8 @@ type LSTable struct {
 	LSUpdateInviterId                                []*LSUpdateInviterId                                `json:",omitempty"`
 	LSAddToMemberCount                               []*LSAddToMemberCount                               `json:",omitempty"`
 	LSMoveThreadToArchivedFolder                     []*LSMoveThreadToArchivedFolder                     `json:",omitempty"`
+	LSUpdateThreadParticipantNicknameV2              []*LSUpdateThreadParticipantNicknameV2              `json:",omitempty"`
+	LSUpdateThreadCustomEmoji                        []*LSUpdateThreadCustomEmoji                        `json:",omitempty"`
 	LSRemoveParticipantFromThread                    []*LSRemoveParticipantFromThread                    `json:",omitempty"`
 	LSDeleteRtcRoomOnThread                          []*LSDeleteRtcRoomOnThread                          `json:",omitempty"`
 	LSUpdateThreadTheme                              []*LSUpdateThreadTheme                              `json:",omitempty"`
@@ -190,6 +192,8 @@ var SPTable = map[string]string{
 	"deleteRtcRoomOnThread":                          "LSDeleteRtcRoomOnThread",
 	"removeParticipantFromThread":                    "LSRemoveParticipantFromThread",
 	"moveThreadToArchivedFolder":                     "LSMoveThreadToArchivedFolder",
+	"updateThreadParticipantNicknameV2":              "LSUpdateThreadParticipantNicknameV2",
+	"updateThreadCustomEmoji":                        "LSUpdateThreadCustomEmoji",
 	"setThreadCannotUnsendReason":                    "LSSetThreadCannotUnsendReason",
 	"clearLocalThreadPictureUrl":                     "LSClearLocalThreadPictureUrl",
 	"updateInviterId":                                "LSUpdateInviterId",

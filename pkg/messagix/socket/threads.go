@@ -153,6 +153,16 @@ func (t *SendMessageTask) Create() (any, string) {
 	return t, queueName
 }
 
+type ShareContactTask struct {
+	ContactID int64   `json:"contact_id"`
+	SyncGroup int64   `json:"sync_group"`
+	Text      *string `json:"text"`
+	ThreadID  int64   `json:"thread_id,string"`
+}
+
+func (t *ShareContactTask) GetLabel() string      { return TaskLabels["ShareContactTask"] }
+func (t *ShareContactTask) Create() (any, string) { return t, "messenger_contact_sharing" }
+
 type CreatePollTask struct {
 	QuestionText string   `json:"question_text"`
 	ThreadKey    int64    `json:"thread_key"`

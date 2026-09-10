@@ -290,7 +290,7 @@ type LSInsertXmaAttachment struct {
 	TargetId                                   int64          `index:"109" json:",omitempty"`
 	XMATypeOne                                 string         `index:"110" json:",omitempty"`
 	XMATypeTwo                                 string         `index:"111" json:",omitempty"`
-	AttachmentLoggingType                      int64          `index:"112" json:",omitempty"`
+	AttachmentLoggingType                      string         `index:"112" json:",omitempty"`
 	PreviewUrlLarge                            string         `index:"114" json:",omitempty"`
 	BodyText                                   string         `index:"115" json:",omitempty"`
 	GatingType                                 int64          `index:"116" json:",omitempty"`

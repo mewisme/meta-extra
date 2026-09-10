@@ -82,6 +82,9 @@
 * [x] Thread theme catalog and mutation
 * [x] Call notification mute/unmute
 * [x] Realtime typed thread system events
+* [x] Contact card sharing
+* Messenger Notes remain owned by Facebook Web/GraphQL and are intentionally not duplicated in the Messenger transport.
+* Message power-ups remain readable protocol metadata, but current Web send paths hardcode `NONE`; outbound effects are intentionally not exposed.
 
 ## Encrypted Messenger
 

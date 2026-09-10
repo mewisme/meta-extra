@@ -195,6 +195,14 @@ const (
 	BASIC_SUPER_REACT_ANIMATION ReactionStyle = 1
 )
 
+type BlockedByViewerStatus int64
+
+const (
+	BlockedByViewerStatusUnblocked BlockedByViewerStatus = iota
+	BlockedByViewerStatusMessageBlocked
+	BlockedByViewerStatusFullyBlocked
+)
+
 type RestrictionType int64
 
 const (

@@ -12,7 +12,7 @@ type LSVerifyContactRowExists struct {
 	NormalizedNameForSearch                string                    `index:"8" json:",omitempty"`
 	IsMemorialized                         bool                      `index:"9" json:",omitempty"`
 	IsBlocked                              bool                      `index:"10" json:",omitempty"`
-	BlockedByViewerStatus                  int64                     `index:"11" json:",omitempty"`
+	BlockedByViewerStatus                  BlockedByViewerStatus     `index:"11" json:",omitempty"`
 	CanViewerMessage                       bool                      `index:"12" json:",omitempty"`
 	IsSelf                                 bool                      `index:"13" json:",omitempty"`
 	AuthorityLevel                         int64                     `index:"14" json:",omitempty"`
@@ -41,6 +41,10 @@ func (vcre *LSVerifyContactRowExists) GetAvatarURL() string {
 
 func (vcre *LSVerifyContactRowExists) GetFBID() int64 { return vcre.ContactId }
 
+func (vcre *LSVerifyContactRowExists) IsMessengerRestricted() bool {
+	return vcre != nil && vcre.Capabilities2&(1<<2) != 0
+}
+
 type LSDeleteThenInsertContact struct {
 	Id                                          int64                     `index:"0" json:",omitempty"`
 	ProfilePictureUrl                           string                    `index:"2" json:",omitempty"`
@@ -53,7 +57,7 @@ type LSDeleteThenInsertContact struct {
 	NormalizedNameForSearch                     string                    `index:"10" json:",omitempty"`
 	IsMessengerUser                             bool                      `index:"11" json:",omitempty"`
 	IsMemorialized                              bool                      `index:"12" json:",omitempty"`
-	BlockedByViewerStatus                       int64                     `index:"14" json:",omitempty"`
+	BlockedByViewerStatus                       BlockedByViewerStatus     `index:"14" json:",omitempty"`
 	Rank                                        float64                   `index:"17" json:",omitempty"`
 	FirstName                                   string                    `index:"18" json:",omitempty"`
 	ContactType                                 int64                     `index:"19" json:",omitempty"` // TODO enum
@@ -109,6 +113,10 @@ func (ls *LSDeleteThenInsertContact) GetAvatarURL() string {
 
 func (ls *LSDeleteThenInsertContact) GetFBID() int64 {
 	return ls.Id
+}
+
+func (ls *LSDeleteThenInsertContact) IsMessengerRestricted() bool {
+	return ls != nil && ls.Capabilities2&(1<<2) != 0
 }
 
 type LSDeleteThenInsertContactPresence struct {

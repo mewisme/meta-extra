@@ -63,3 +63,38 @@ func (t *SearchUserTask) Create() (any, string) {
 	}
 	return t, fmt.Sprintf(`["search_primary",%d]`, time.Now().UnixMilli())
 }
+
+type MessengerRestrictAction int64
+
+const (
+	MessengerRestrictActionRestrict MessengerRestrictAction = iota
+	MessengerRestrictActionUnrestrict
+)
+
+type SetMessengerRestrictTask struct {
+	RestricteeID int64                   `json:"restrictee_id"`
+	RequestID    *string                 `json:"request_id"`
+	Action       MessengerRestrictAction `json:"messenger_restrict_action"`
+}
+
+func (t *SetMessengerRestrictTask) GetLabel() string      { return TaskLabels["SetMessengerRestrictTask"] }
+func (t *SetMessengerRestrictTask) Create() (any, string) { return t, "messenger_restrict" }
+
+type MessengerBlockStatus int64
+
+const (
+	MessengerBlockStatusUnblocked MessengerBlockStatus = iota
+	MessengerBlockStatusMessageBlocked
+)
+
+type SetMessengerBlockStatusTask struct {
+	BlockeeID                int64                `json:"blockee_id"`
+	BlockedByViewerStatus    MessengerBlockStatus `json:"blocked_by_viewer_status"`
+	RequestID                *string              `json:"request_id"`
+	UseOptimisticBlockStatus bool                 `json:"use_optimistic_block_status"`
+}
+
+func (t *SetMessengerBlockStatusTask) GetLabel() string {
+	return TaskLabels["SetMessengerBlockStatusTask"]
+}
+func (t *SetMessengerBlockStatusTask) Create() (any, string) { return t, "block_status" }

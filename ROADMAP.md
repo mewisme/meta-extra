@@ -77,6 +77,8 @@
   * [x] Admin approval mode
   * [x] Archive/unarchive
 * [x] Message pin/unpin
+* [x] Thread theme catalog and mutation
+* [x] Call notification mute/unmute
 
 ## Encrypted Messenger
 

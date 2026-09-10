@@ -233,6 +233,17 @@ func (t *MuteThreadTask) Create() (any, string) {
 	return t, strconv.FormatInt(t.ThreadKey, 10)
 }
 
+type MuteThreadCallsTask struct {
+	ThreadKey             string  `json:"thread_key"`
+	MailboxType           int64   `json:"mailbox_type"`
+	MuteCallsExpireTimeMS int64   `json:"mute_calls_expire_time_ms"`
+	RequestID             *string `json:"request_id"`
+	SyncGroup             int64   `json:"sync_group"`
+}
+
+func (t *MuteThreadCallsTask) GetLabel() string      { return TaskLabels["MuteThreadCallsTask"] }
+func (t *MuteThreadCallsTask) Create() (any, string) { return t, t.ThreadKey }
+
 type RenameThreadTask struct {
 	ThreadKey  int64  `json:"thread_key"`
 	ThreadName string `json:"thread_name"`
@@ -259,6 +270,38 @@ func (t *SetThreadImageTask) GetLabel() string {
 
 func (t *SetThreadImageTask) Create() (any, string) {
 	return t, "thread_image"
+}
+
+type setThreadThemeTask struct {
+	ThreadKey    int64 `json:"thread_key"`
+	ThemeFBID    int64 `json:"theme_fbid"`
+	SyncGroup    int64 `json:"sync_group"`
+	label        string
+	queue        string
+	includeNulls bool
+}
+
+func (t *setThreadThemeTask) GetLabel() string { return t.label }
+func (t *setThreadThemeTask) Create() (any, string) {
+	if !t.includeNulls {
+		return t, t.queue
+	}
+	return struct {
+		ThreadKey int64 `json:"thread_key"`
+		ThemeFBID int64 `json:"theme_fbid"`
+		SyncGroup int64 `json:"sync_group"`
+		Source    any   `json:"source"`
+		Payload   any   `json:"payload"`
+	}{ThreadKey: t.ThreadKey, ThemeFBID: t.ThemeFBID, SyncGroup: t.SyncGroup}, t.queue
+}
+
+func NewSetThreadThemeTasks(threadKey, themeFBID int64) []Task {
+	return []Task{
+		&setThreadThemeTask{ThreadKey: threadKey, ThemeFBID: themeFBID, SyncGroup: 1, label: TaskLabels["SetThreadThemeAIGeneratedTask"], queue: "ai_generated_theme"},
+		&setThreadThemeTask{ThreadKey: threadKey, ThemeFBID: themeFBID, SyncGroup: 1, label: TaskLabels["SetThreadThemeCustomTask"], queue: "msgr_custom_thread_theme"},
+		&setThreadThemeTask{ThreadKey: threadKey, ThemeFBID: themeFBID, SyncGroup: 1, label: TaskLabels["SetThreadThemeWriterTask"], queue: "thread_theme_writer"},
+		&setThreadThemeTask{ThreadKey: threadKey, ThemeFBID: themeFBID, SyncGroup: 1, label: TaskLabels["SetThreadThemeTask"], queue: "thread_theme", includeNulls: true},
+	}
 }
 
 type SetThreadNicknameTask struct {

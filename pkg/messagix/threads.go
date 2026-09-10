@@ -87,6 +87,33 @@ func (c *Client) SetThreadEmoji(ctx context.Context, threadKey int64, emoji stri
 	return c.ExecuteTasks(ctx, &socket.SetThreadEmojiTask{ThreadKey: strconv.FormatInt(threadKey, 10), CustomEmoji: emoji, SyncGroup: 1})
 }
 
+func (c *Client) SetThreadTheme(ctx context.Context, threadKey, themeFBID int64) ([]*table.LSTable, error) {
+	if c == nil {
+		return nil, ErrClientIsNil
+	} else if threadKey <= 0 || themeFBID <= 0 {
+		return nil, fmt.Errorf("thread key and theme FBID must be positive")
+	}
+	tasks := socket.NewSetThreadThemeTasks(threadKey, themeFBID)
+	results := make([]*table.LSTable, 0, len(tasks))
+	for _, task := range tasks {
+		result, err := c.ExecuteTasks(ctx, task)
+		if err != nil {
+			return results, err
+		}
+		results = append(results, result)
+	}
+	return results, nil
+}
+
+func (c *Client) SetThreadCallsMute(ctx context.Context, threadKey, muteExpireTimeMS int64) (*table.LSTable, error) {
+	if c == nil {
+		return nil, ErrClientIsNil
+	} else if threadKey <= 0 || muteExpireTimeMS < -1 {
+		return nil, fmt.Errorf("thread key must be positive and mute expiry must be -1, 0, or a timestamp")
+	}
+	return c.ExecuteTasks(ctx, &socket.MuteThreadCallsTask{ThreadKey: strconv.FormatInt(threadKey, 10), MuteCallsExpireTimeMS: muteExpireTimeMS, SyncGroup: 1})
+}
+
 func (c *Client) SetThreadApprovalMode(ctx context.Context, threadKey int64, enabled bool) (*table.LSTable, error) {
 	if c == nil {
 		return nil, ErrClientIsNil

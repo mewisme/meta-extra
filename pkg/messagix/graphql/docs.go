@@ -26,6 +26,10 @@ var GraphQLDocs = map[string]GraphQLDoc{
 		FriendlyName: "MAWCatQuery",
 		Jsessw:       "1",
 	},
+	"MWPThreadThemeQuery_AllThemesQuery": {
+		DocID:        "24474714052117636",
+		FriendlyName: "MWPThreadThemeQuery_AllThemesQuery",
+	},
 	"IGDEditThreadNameDialogOffMsysMutation": {
 		DocID:        "26508340268868683",
 		FriendlyName: "IGDEditThreadNameDialogOffMsysMutation",

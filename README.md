@@ -34,9 +34,15 @@ Upstream setup and usage documentation remains the primary reference for bridge 
 
 Fork-specific behavior should be documented in this repository when it differs from upstream.
 
+## Fork-specific Messenger capabilities
+
+`meta-extra` adds typed current-protocol primitives on top of the upstream bridge, including thread nickname/emoji/approval/theme controls, archive state, call mute, message pinning, pinned-message and poll queries, per-thread message search, typed thread system events, contact sharing, Messenger restriction/message-blocking tasks, and current self-recall decoding.
+
+These protocol-layer capabilities are kept separate from bridge-level Matrix mappings so downstream projects can use them without duplicating Lightspeed task labels, queue names, payloads, or table decoding.
+
 ## Features and roadmap
 
-[ROADMAP.md](ROADMAP.md) contains the upstream feature overview. Additional `meta-extra` capabilities may extend it over time.
+[ROADMAP.md](ROADMAP.md) tracks implemented capabilities, real remaining gaps, and protocol surfaces that are intentionally deferred after current-protocol revalidation.
 
 ## License and attribution
 

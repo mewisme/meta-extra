@@ -205,6 +205,8 @@ type LSSetPinnedMessage struct {
 	AuthorityLevel    int64  `index:"3" json:",omitempty"`
 }
 
+func (ls *LSSetPinnedMessage) IsPinned() bool { return ls != nil && ls.PinnedTimestampMs > 0 }
+
 type LSSetForwardScore struct {
 	ThreadKey    int64  `index:"0" json:",omitempty"`
 	MessageId    string `index:"1" json:",omitempty"`

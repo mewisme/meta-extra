@@ -33,6 +33,8 @@ var TaskLabels = map[string]string{
 	"CreateThreadTask":             "209",
 	"FetchMessagesTask":            "228",
 	"UnarchiveThreadTask":          "242",
+	"PinMessageTask":               "430",
+	"UnpinMessageTask":             "431",
 	"FetchCommunityMemberList":     "355",
 	"CreateWhatsAppThreadTask":     "388",
 	"GetContactsTask":              "452",

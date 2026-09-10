@@ -76,6 +76,7 @@
   * [x] Custom emoji
   * [x] Admin approval mode
   * [x] Archive/unarchive
+* [x] Message pin/unpin
 
 ## Encrypted Messenger
 

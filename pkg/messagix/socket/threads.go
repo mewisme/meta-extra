@@ -428,6 +428,28 @@ type UnarchiveThreadTask struct {
 func (t *UnarchiveThreadTask) GetLabel() string      { return TaskLabels["UnarchiveThreadTask"] }
 func (t *UnarchiveThreadTask) Create() (any, string) { return t, "unarchive_thread" }
 
+type MessagePinTask struct {
+	MessageID   string `json:"message_id"`
+	ThreadKey   string `json:"thread_key"`
+	TimestampMS int64  `json:"timestamp_ms"`
+	Pinned      bool   `json:"-"`
+}
+
+func (t *MessagePinTask) GetLabel() string {
+	if t.Pinned {
+		return TaskLabels["PinMessageTask"]
+	}
+	return TaskLabels["UnpinMessageTask"]
+}
+
+func (t *MessagePinTask) Create() (any, string) {
+	prefix := "unpin"
+	if t.Pinned {
+		prefix = "pin"
+	}
+	return t, fmt.Sprintf("%s_msg_v2_%s", prefix, t.ThreadKey)
+}
+
 type CreateWhatsAppThreadTask struct {
 	WAJID            int64            `json:"wa_jid"`
 	OfflineThreadKey int64            `json:"offline_thread_key"`

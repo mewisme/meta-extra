@@ -5,6 +5,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"strconv"
+	"time"
 
 	"go.mewis.me/meta-extra/pkg/messagix/socket"
 	"go.mewis.me/meta-extra/pkg/messagix/table"
@@ -109,4 +110,13 @@ func (c *Client) SetThreadArchived(ctx context.Context, threadKey int64, archive
 		return c.ExecuteTasks(ctx, &socket.ArchiveThreadTask{ThreadKey: threadKey, SyncGroup: 1})
 	}
 	return c.ExecuteTasks(ctx, &socket.UnarchiveThreadTask{ThreadID: strconv.FormatInt(threadKey, 10), SyncGroup: 1})
+}
+
+func (c *Client) SetMessagePinned(ctx context.Context, threadKey int64, messageID string, pinned bool) (*table.LSTable, error) {
+	if c == nil {
+		return nil, ErrClientIsNil
+	} else if threadKey <= 0 || messageID == "" {
+		return nil, fmt.Errorf("thread key and message ID are required")
+	}
+	return c.ExecuteTasks(ctx, &socket.MessagePinTask{ThreadKey: strconv.FormatInt(threadKey, 10), MessageID: messageID, TimestampMS: time.Now().UnixMilli(), Pinned: pinned})
 }

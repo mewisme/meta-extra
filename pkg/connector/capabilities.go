@@ -183,6 +183,7 @@ func init() {
 
 	metaCapsWithE2E = metaCaps.Clone()
 	metaCapsWithE2E.ID += "+e2e"
+	metaCapsWithE2E.LocationMessage = event.CapLevelFullySupported
 	for _, value := range metaCapsWithE2E.File {
 		value.MaxSize = MaxFileSizeWithE2E
 		// Messenger Web doesn't render captions on images in e2ee chats 3:<

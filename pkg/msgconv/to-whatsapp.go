@@ -24,6 +24,7 @@ import (
 	"image/color"
 	"image/draw"
 	"image/png"
+	"math"
 	"net/http"
 	"strconv"
 	"strings"
@@ -105,20 +106,8 @@ func (mc *MessageConverter) ToWhatsApp(
 		if err != nil {
 			return nil, nil, err
 		}
-		// TODO this is supposed to upload a preview of the map
 		armadilloContent.Content = &waArmadilloApplication.Armadillo_Content_ExtendedContentMessage{
-			ExtendedContentMessage: &waArmadilloXMA.ExtendedContentMessage{
-				TargetID:         proto.String(""),
-				TargetType:       waArmadilloXMA.ExtendedContentMessage_MSG_LOCATION_SHARING_V2.Enum(),
-				XmaLayoutType:    waArmadilloXMA.ExtendedContentMessage_SINGLE.Enum(),
-				OverlayIconGlyph: waArmadilloXMA.ExtendedContentMessage_NONE.Enum(),
-				Ctas: []*waArmadilloXMA.ExtendedContentMessage_CTA{{
-					ButtonType: waArmadilloXMA.ExtendedContentMessage_OPEN_NATIVE.Enum(),
-					NativeURL:  proto.String(fmt.Sprintf("messenger://location_share?lat=%.6f&long=%.6f", lat, long)),
-				}},
-				TitleText:    proto.String("Shared location"),
-				SubtitleText: proto.String(""),
-			},
+			ExtendedContentMessage: locationXMA(lat, long),
 		}
 	default:
 		return nil, nil, fmt.Errorf("%w %s", bridgev2.ErrUnsupportedMessageType, content.MsgType)
@@ -187,6 +176,21 @@ func (mc *MessageConverter) ToWhatsApp(
 	}
 }
 
+func locationXMA(lat, long float64) *waArmadilloXMA.ExtendedContentMessage {
+	return &waArmadilloXMA.ExtendedContentMessage{
+		TargetID:         proto.String(""),
+		TargetType:       waArmadilloXMA.ExtendedContentMessage_MSG_LOCATION_SHARING_V2.Enum(),
+		XmaLayoutType:    waArmadilloXMA.ExtendedContentMessage_SINGLE.Enum(),
+		OverlayIconGlyph: waArmadilloXMA.ExtendedContentMessage_NONE.Enum(),
+		Ctas: []*waArmadilloXMA.ExtendedContentMessage_CTA{{
+			ButtonType: waArmadilloXMA.ExtendedContentMessage_OPEN_NATIVE.Enum(),
+			NativeURL:  proto.String(fmt.Sprintf("messenger://location_share?lat=%.6f&long=%.6f", lat, long)),
+		}},
+		TitleText:    proto.String("Shared location"),
+		SubtitleText: proto.String(""),
+	}
+}
+
 func parseGeoURI(uri string) (lat, long float64, err error) {
 	if !strings.HasPrefix(uri, "geo:") {
 		err = fmt.Errorf("uri doesn't have geo: prefix")
@@ -201,6 +205,10 @@ func parseGeoURI(uri string) (lat, long float64, err error) {
 		err = fmt.Errorf("latitude is not a number: %w", err)
 	} else if long, err = strconv.ParseFloat(splitCoordinates[1], 64); err != nil {
 		err = fmt.Errorf("longitude is not a number: %w", err)
+	} else if math.IsNaN(lat) || math.IsInf(lat, 0) || lat < -90 || lat > 90 {
+		err = fmt.Errorf("latitude must be between -90 and 90")
+	} else if math.IsNaN(long) || math.IsInf(long, 0) || long < -180 || long > 180 {
+		err = fmt.Errorf("longitude must be between -180 and 180")
 	}
 	return
 }

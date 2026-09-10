@@ -10,7 +10,7 @@
     * [x] Voice messages
     * [x] Videos
     * [x] Images
-    * [ ] Locations
+    * [x] Locations
     * [ ] Polls
   * [x] Formatting
   * [x] Replies

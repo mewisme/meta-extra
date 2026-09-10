@@ -81,6 +81,7 @@
 * [x] Poll state/query
 * [x] Thread theme catalog and mutation
 * [x] Call notification mute/unmute
+* [x] Realtime typed thread system events
 
 ## Encrypted Messenger
 

@@ -154,6 +154,9 @@ func (c *Client) handleFrame(ctx context.Context, frame []byte) error {
 	} else {
 		c.applyMailboxState(tbl)
 		c.HandleEvent(ctx, tbl)
+		for _, evt := range c.threadSystemEvents(tbl) {
+			c.HandleEvent(ctx, evt)
+		}
 	}
 	return nil
 }

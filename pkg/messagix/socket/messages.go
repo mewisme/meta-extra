@@ -96,3 +96,26 @@ func (t *SendReactionV2Task) GetLabel() string {
 func (t *SendReactionV2Task) Create() (any, string) {
 	return t, string(exerrors.Must(json.Marshal([]string{"reaction_v2", t.MessageID})))
 }
+
+type SearchMessagesTask struct {
+	Query          string
+	ThreadKey      int64
+	NextPageCursor *string
+}
+
+type searchMessagesPayload struct {
+	Query          string                  `json:"query"`
+	Type           table.MessageSearchType `json:"type"`
+	ThreadKey      int64                   `json:"thread_key"`
+	NextPageCursor *string                 `json:"next_page_cursor"`
+	ClientCallerID string                  `json:"client_caller_id"`
+}
+
+func (t *SearchMessagesTask) GetLabel() string { return TaskLabels["SearchMessagesTask"] }
+func (t *SearchMessagesTask) Create() (any, string) {
+	callerID := "msgr_search_web_start_conversation_message_search"
+	if t.NextPageCursor != nil {
+		callerID = "msgr_search_web_in_conversation_message_search"
+	}
+	return &searchMessagesPayload{Query: t.Query, Type: table.MessageSearchTypeMessage, ThreadKey: t.ThreadKey, NextPageCursor: t.NextPageCursor, ClientCallerID: callerID}, "message_search"
+}

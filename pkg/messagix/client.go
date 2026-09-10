@@ -65,6 +65,7 @@ type Client struct {
 	pinnedMessages         map[int64]map[string]PinnedMessage
 	polls                  map[int64]*pollState
 	pollsV2Threads         map[int64]bool
+	messageSearches        map[messageSearchKey]*messageSearchState
 	mailboxStateLoaded     atomic.Bool
 
 	stopCurrentConnections atomic.Pointer[context.CancelFunc]
@@ -88,6 +89,7 @@ func NewClient(cookies *cookies.Cookies, logger zerolog.Logger, cfg *Config) *Cl
 		pinnedMessages:        make(map[int64]map[string]PinnedMessage),
 		polls:                 make(map[int64]*pollState),
 		pollsV2Threads:        make(map[int64]bool),
+		messageSearches:       make(map[messageSearchKey]*messageSearchState),
 	}
 	cli.configs = httpclient.NewConfigs(cli)
 	cli.http = httpclient.NewHTTPClient(cli, cli.configs, cfg.ClientSettings)

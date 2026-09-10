@@ -238,6 +238,21 @@ const (
 	SearchTypeLocation
 )
 
+type MessageSearchType int64
+
+const (
+	MessageSearchTypeThread  MessageSearchType = 1
+	MessageSearchTypeMessage MessageSearchType = 2
+)
+
+type MessageSearchStatus int64
+
+const (
+	MessageSearchStatusPending  MessageSearchStatus = 1
+	MessageSearchStatusComplete MessageSearchStatus = 2
+	MessageSearchStatusFailed   MessageSearchStatus = 3
+)
+
 type ThreadType int64
 
 func (tt ThreadType) IsOneToOne() bool {

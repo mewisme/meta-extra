@@ -72,6 +72,7 @@ func (c *Client) resetMailboxState() {
 	clear(c.pinnedMessages)
 	clear(c.polls)
 	clear(c.pollsV2Threads)
+	clear(c.messageSearches)
 	c.stateMu.Unlock()
 	c.mailboxStateLoaded.Store(false)
 }
@@ -82,6 +83,7 @@ func (c *Client) applyMailboxState(tbl *table.LSTable) {
 	}
 	c.stateMu.Lock()
 	defer c.stateMu.Unlock()
+	c.applyMessageSearchStateLocked(tbl)
 	for _, item := range tbl.LSClearPinnedMessages {
 		if item != nil {
 			delete(c.pinnedMessages, item.ThreadKey)

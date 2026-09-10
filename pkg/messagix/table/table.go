@@ -81,6 +81,8 @@ type LSTable struct {
 	LSOverwriteAllThreadParticipantsAdminStatus      []*LSOverwriteAllThreadParticipantsAdminStatus      `json:",omitempty"`
 	LSUpdateParticipantCapabilities                  []*LSUpdateParticipantCapabilities                  `json:",omitempty"`
 	LSChangeViewerStatus                             []*LSChangeViewerStatus                             `json:",omitempty"`
+	LSUpdateMessageSearchQueryStatus                 []*LSUpdateMessageSearchQueryStatus                 `json:",omitempty"`
+	LSInsertMessageSearchResult                      []*LSInsertMessageSearchResult                      `json:",omitempty"`
 	LSUpdateSearchQueryStatus                        []*LSUpdateSearchQueryStatus                        `json:",omitempty"`
 	LSInsertSearchResult                             []*LSInsertSearchResult                             `json:",omitempty"`
 	LSInsertSearchSection                            []*LSInsertSearchSection                            `json:",omitempty"`
@@ -224,6 +226,8 @@ var SPTable = map[string]string{
 	"setMessageTextHasLinks":                         "LSSetMessageTextHasLinks",
 	"syncUpdateThreadName":                           "LSSyncUpdateThreadName",
 	"setThreadImageURL":                              "LSSetThreadImageURL",
+	"insertMessageSearchResult":                      "LSInsertMessageSearchResult",
+	"updateMessageSearchQueryStatus":                 "LSUpdateMessageSearchQueryStatus",
 	"insertSearchSection":                            "LSInsertSearchSection",
 	"insertSearchResult":                             "LSInsertSearchResult",
 	"updateSearchQueryStatus":                        "LSUpdateSearchQueryStatus",

@@ -20,6 +20,7 @@ var TaskLabels = map[string]string{
 	"SetThreadThemeTask":            "43",
 	"SetThreadNicknameTask":         "44",
 	"SendMessageTask":               "46",
+	"SearchMessagesTask":            "107",
 	"SetMessengerBlockStatusTask":   "151",
 	"ShareContactTask":              "359",
 	"SetThreadEmojiTask":            "53",

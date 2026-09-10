@@ -4,6 +4,35 @@ import (
 	"strconv"
 )
 
+type LSUpdateMessageSearchQueryStatus struct {
+	Query          string              `index:"0" json:",omitempty"`
+	Type_          MessageSearchType   `index:"1" json:",omitempty"`
+	Status         MessageSearchStatus `index:"2" json:",omitempty"`
+	HasNextPage    bool                `index:"3" json:",omitempty"`
+	NextPageCursor string              `index:"4" json:",omitempty"`
+	ThreadKeyV2    int64               `index:"5" json:",omitempty"`
+	ResultCount    int64               `index:"6" json:",omitempty"`
+
+	Unrecognized map[int]any `json:",omitempty"`
+}
+
+type LSInsertMessageSearchResult struct {
+	Query              string            `index:"0" json:",omitempty"`
+	GlobalIndex        int64             `index:"1" json:",omitempty"`
+	ThreadKey          int64             `index:"2" json:",omitempty"`
+	Type_              MessageSearchType `index:"3" json:",omitempty"`
+	ThreadType         ThreadType        `index:"4" json:",omitempty"`
+	DisplayName        string            `index:"5" json:",omitempty"`
+	MessageId          string            `index:"6" json:",omitempty"`
+	MessageTimestampMs int64             `index:"7" json:",omitempty"`
+	ContextLine        string            `index:"8" json:",omitempty"`
+	ProfilePicUrl      string            `index:"9" json:",omitempty"`
+	MatchOffsets       string            `index:"11" json:",omitempty"`
+	MatchLengths       string            `index:"12" json:",omitempty"`
+
+	Unrecognized map[int]any `json:",omitempty"`
+}
+
 type LSUpdateSearchQueryStatus struct {
 	Query           string `index:"0" json:",omitempty"`
 	Unknown         int64  `index:"1" json:",omitempty"`

@@ -61,6 +61,11 @@ type Client struct {
 
 	catRefreshLock         sync.Mutex
 	unnecessaryCATRequests int
+	stateMu                sync.RWMutex
+	pinnedMessages         map[int64]map[string]PinnedMessage
+	polls                  map[int64]*pollState
+	pollsV2Threads         map[int64]bool
+	mailboxStateLoaded     atomic.Bool
 
 	stopCurrentConnections atomic.Pointer[context.CancelFunc]
 	connectionLoopStopped  *exsync.Event
@@ -80,6 +85,9 @@ func NewClient(cookies *cookies.Cookies, logger zerolog.Logger, cfg *Config) *Cl
 		connectionLoopStopped: exsync.NewEvent(),
 		canSendMessages:       exsync.NewEvent(),
 		socketSyncWaiters:     exsync.NewMap[int64, chan *PublishResponseData](),
+		pinnedMessages:        make(map[int64]map[string]PinnedMessage),
+		polls:                 make(map[int64]*pollState),
+		pollsV2Threads:        make(map[int64]bool),
 	}
 	cli.configs = httpclient.NewConfigs(cli)
 	cli.http = httpclient.NewHTTPClient(cli, cli.configs, cfg.ClientSettings)
@@ -170,6 +178,7 @@ func (c *Client) LoadMessagesPage(ctx context.Context) (types.UserInfo, *table.L
 		return nil, nil, httpclient.ErrTokenInvalidated
 	}
 
+	c.resetMailboxState()
 	moduleLoader := httpclient.NewModuleParser(c, c.http, c.configs)
 	err := moduleLoader.Load(ctx, c.GetEndpoint("messages"))
 	if err != nil {
@@ -181,6 +190,8 @@ func (c *Client) LoadMessagesPage(ctx context.Context) (types.UserInfo, *table.L
 	if err != nil {
 		return nil, nil, err
 	}
+	c.applyMailboxState(ls)
+	c.mailboxStateLoaded.Store(true)
 	currentUser := &c.configs.BrowserConfigTable.CurrentUserInitialData
 	return currentUser, ls, nil
 }

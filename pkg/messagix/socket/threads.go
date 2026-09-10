@@ -168,6 +168,18 @@ func (t *CreatePollTask) Create() (any, string) {
 	return t, "poll_creation"
 }
 
+type FetchPollDetailsTask struct {
+	PollID int64 `json:"poll_id"`
+}
+
+func (t *FetchPollDetailsTask) GetLabel() string {
+	return TaskLabels["FetchPollDetailsTask"]
+}
+
+func (t *FetchPollDetailsTask) Create() (any, string) {
+	return t, "fetch_community_chat_poll_detail"
+}
+
 type UpdatePollTask struct {
 	ThreadKey       int64            `json:"thread_key"`
 	PollID          int64            `json:"poll_id"`

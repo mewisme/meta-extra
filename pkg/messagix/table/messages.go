@@ -207,6 +207,19 @@ type LSSetPinnedMessage struct {
 
 func (ls *LSSetPinnedMessage) IsPinned() bool { return ls != nil && ls.PinnedTimestampMs > 0 }
 
+type LSApplyAdminMessageCTAV2 struct {
+	ThreadKey      int64  `index:"0" json:",omitempty"`
+	TimestampMS    int64  `index:"1" json:",omitempty"`
+	MessageID      string `index:"2" json:",omitempty"`
+	CTATitle       string `index:"3" json:",omitempty"`
+	CTAType        string `index:"4" json:",omitempty"`
+	PollID         int64  `index:"11" json:",omitempty"`
+	PollTitle      string `index:"12" json:",omitempty"`
+	AuthorityLevel int64  `index:"13" json:",omitempty"`
+
+	Unrecognized map[int]any `json:",omitempty"`
+}
+
 type LSSetForwardScore struct {
 	ThreadKey    int64  `index:"0" json:",omitempty"`
 	MessageId    string `index:"1" json:",omitempty"`

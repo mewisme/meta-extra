@@ -41,6 +41,7 @@ var TaskLabels = map[string]string{
 	"UnpinMessageTask":              "431",
 	"GetContactsTask":               "452",
 	"CommunityThreadHoleDetection":  "501",
+	"FetchPollDetailsTask":          "545",
 	"FetchReactionsV2UserList":      "577",
 	"SendReactionV2":                "604",
 	"DeleteCommunitySubThread":      "639",

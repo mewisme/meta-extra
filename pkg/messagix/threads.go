@@ -37,6 +37,7 @@ func (c *Client) ExecuteTasks(ctx context.Context, tasks ...socket.Task) (*table
 	if err != nil {
 		return nil, fmt.Errorf("failed to parse response: %w", err)
 	}
+	c.applyMailboxState(tbl)
 
 	return tbl, nil
 }

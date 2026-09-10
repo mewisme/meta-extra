@@ -126,6 +126,7 @@ type LSTable struct {
 	LSHandleRepliesOnRemove                          []*LSHandleRepliesOnRemove                          `json:",omitempty"`
 	LSRefreshLastActivityTimestamp                   []*LSRefreshLastActivityTimestamp                   `json:",omitempty"`
 	LSSetPinnedMessage                               []*LSSetPinnedMessage                               `json:",omitempty"`
+	LSApplyAdminMessageCTAV2                         []*LSApplyAdminMessageCTAV2                         `json:",omitempty"`
 	LSStoryContactSyncFromBucket                     []*LSStoryContactSyncFromBucket                     `json:",omitempty"`
 	LSUpsertLiveLocationSharer                       []*LSUpsertLiveLocationSharer                       `json:",omitempty"`
 	LSDeleteLiveLocationSharer                       []*LSDeleteLiveLocationSharer                       `json:",omitempty"`
@@ -145,6 +146,7 @@ type LSTable struct {
 	LSAddPollOptionV2                                []*LSAddPollOption                                  `json:",omitempty"`
 	LSAddPollVote                                    []*LSAddPollVote                                    `json:",omitempty"`
 	LSAddPollVoteV2                                  []*LSAddPollVote                                    `json:",omitempty"`
+	LSRemovePollVoteV2                               []*LSAddPollVote                                    `json:",omitempty"`
 	LSUpdateThreadMuteSetting                        []*LSUpdateThreadMuteSetting                        `json:",omitempty"`
 	LSInsertAttachment                               []*LSInsertAttachment                               `json:",omitempty"`
 	LSUpdateExtraAttachmentColumns                   []*LSUpdateExtraAttachmentColumns                   `json:",omitempty"`
@@ -296,6 +298,7 @@ var SPTable = map[string]string{
 	"handleRepliesOnRemove":                          "LSHandleRepliesOnRemove",
 	"refreshLastActivityTimestamp":                   "LSRefreshLastActivityTimestamp",
 	"setPinnedMessage":                               "LSSetPinnedMessage",
+	"applyAdminMessageCTAV2":                         "LSApplyAdminMessageCTAV2",
 	"storyContactSyncFromBucket":                     "LSStoryContactSyncFromBucket",
 	"upsertLiveLocationSharer":                       "LSUpsertLiveLocationSharer",
 	"deleteLiveLocationSharer":                       "LSDeleteLiveLocationSharer",
@@ -314,6 +317,7 @@ var SPTable = map[string]string{
 	"addPollOptionV2":                                "LSAddPollOptionV2",
 	"addPollVote":                                    "LSAddPollVote",
 	"addPollVoteV2":                                  "LSAddPollVoteV2",
+	"removePollVoteV2":                               "LSRemovePollVoteV2",
 	"addPollForThread":                               "LSAddPollForThread",
 	"deleteReaction":                                 "LSDeleteReaction",
 	"updateThreadMuteSetting":                        "LSUpdateThreadMuteSetting",

@@ -152,6 +152,7 @@ func (c *Client) handleFrame(ctx context.Context, frame []byte) error {
 	} else if tbl, err := prd.Parse(ctx); err != nil {
 		zerolog.Ctx(ctx).Warn().Err(err).Msg("Failed to parse table")
 	} else {
+		c.applyMailboxState(tbl)
 		c.HandleEvent(ctx, tbl)
 	}
 	return nil
@@ -161,6 +162,7 @@ func (c *Client) PostHandlePublishResponse(tbl *table.LSTable) {
 	if c == nil {
 		return
 	}
+	c.applyMailboxState(tbl)
 	syncGroupsNeedUpdate := methods.NeedUpdateSyncGroups(tbl)
 	if syncGroupsNeedUpdate {
 		c.Logger.Debug().

@@ -169,6 +169,7 @@ func (sm *SyncManager) recursivelySyncSocketData(
 	if err != nil {
 		return fmt.Errorf("failed to parse table for syncing socket data: %w", err)
 	}
+	sm.client.applyMailboxState(tbl)
 
 	if len(tbl.LSHandleSyncFailure) > 0 {
 		// TODO handle these somehow?

@@ -146,5 +146,28 @@ func (c *Client) SetMessagePinned(ctx context.Context, threadKey int64, messageI
 	} else if threadKey <= 0 || messageID == "" {
 		return nil, fmt.Errorf("thread key and message ID are required")
 	}
-	return c.ExecuteTasks(ctx, &socket.MessagePinTask{ThreadKey: strconv.FormatInt(threadKey, 10), MessageID: messageID, TimestampMS: time.Now().UnixMilli(), Pinned: pinned})
+	timestampMS := time.Now().UnixMilli()
+	tbl, err := c.ExecuteTasks(ctx, &socket.MessagePinTask{ThreadKey: strconv.FormatInt(threadKey, 10), MessageID: messageID, TimestampMS: timestampMS, Pinned: pinned})
+	if err != nil {
+		return nil, err
+	}
+	c.applyPinnedMutationFallback(tbl, threadKey, messageID, timestampMS, pinned)
+	return tbl, nil
+}
+
+func (c *Client) applyPinnedMutationFallback(tbl *table.LSTable, threadKey int64, messageID string, timestampMS int64, pinned bool) {
+	if c == nil {
+		return
+	}
+	if tbl != nil {
+		for _, item := range tbl.LSSetPinnedMessage {
+			if item != nil && item.ThreadKey == threadKey && item.MessageId == messageID {
+				return
+			}
+		}
+	}
+	if !pinned {
+		timestampMS = 0
+	}
+	c.applyMailboxState(&table.LSTable{LSSetPinnedMessage: []*table.LSSetPinnedMessage{{ThreadKey: threadKey, MessageId: messageID, PinnedTimestampMs: timestampMS}}})
 }

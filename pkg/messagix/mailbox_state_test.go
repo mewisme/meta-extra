@@ -44,6 +44,33 @@ func TestPinnedMessageState(t *testing.T) {
 	}
 }
 
+func TestPinnedMutationFallback(t *testing.T) {
+	client := newStateTestClient()
+	client.mailboxStateLoaded.Store(true)
+	client.applyPinnedMutationFallback(nil, 1, "m1", 100, true)
+	pins, err := client.ListPinnedMessages(1)
+	if err != nil || len(pins) != 1 || pins[0].MessageID != "m1" || pins[0].PinnedTimestampMS != 100 {
+		t.Fatalf("unexpected fallback pin state: %#v, %v", pins, err)
+	}
+	client.applyPinnedMutationFallback(nil, 1, "m1", 200, false)
+	pins, err = client.ListPinnedMessages(1)
+	if err != nil || len(pins) != 0 {
+		t.Fatalf("unexpected fallback unpin state: %#v, %v", pins, err)
+	}
+}
+
+func TestPinnedMutationFallbackKeepsServerState(t *testing.T) {
+	client := newStateTestClient()
+	client.mailboxStateLoaded.Store(true)
+	server := &table.LSTable{LSSetPinnedMessage: []*table.LSSetPinnedMessage{{ThreadKey: 1, MessageId: "m1", PinnedTimestampMs: 300, AuthorityLevel: 7}}}
+	client.applyMailboxState(server)
+	client.applyPinnedMutationFallback(server, 1, "m1", 100, true)
+	pins, err := client.ListPinnedMessages(1)
+	if err != nil || len(pins) != 1 || pins[0].PinnedTimestampMS != 300 || pins[0].AuthorityLevel != 7 {
+		t.Fatalf("server pin state was overwritten: %#v, %v", pins, err)
+	}
+}
+
 func TestPollState(t *testing.T) {
 	client := newStateTestClient()
 	client.mailboxStateLoaded.Store(true)
